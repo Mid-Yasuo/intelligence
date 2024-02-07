@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.einstein.albert.intelligence.dao.ActivityDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.einstein.albert.intelligence.entity.po.Activity">
+        <id column="id" property="id"/>
+        <result column="activity_sn" property="activitySn"/>
+        <result column="name" property="name"/>
+        <result column="description" property="description"/>
+        <result column="status" property="status"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="max_join" property="maxJoin"/>
+        <result column="max_join_rule" property="maxJoinRule"/>
+        <result column="max_win" property="maxWin"/>
+        <result column="consume_amount" property="consumeAmount"/>
+        <result column="consume_integral" property="consumeIntegral"/>
+        <result column="create_time" property="createTime"/>
+        <result column="creator" property="creator"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="updater" property="updater"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, activity_sn, name, description, status, start_time, end_time, max_join, max_join_rule, max_win, consume_amount,
+        consume_integral, create_time, creator, update_time, updater
+    </sql>
+
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.einstein.albert.intelligence.dao.ReceiveAwardRecordDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.einstein.albert.intelligence.entity.po.ReceiveAwardRecord">
+        <id column="id" property="id" />
+        <result column="lottery_record_id" property="lotteryRecordId" />
+        <result column="phone" property="phone" />
+        <result column="address" property="address" />
+        <result column="status" property="status" />
+        <result column="receive_time" property="receiveTime" />
+        <result column="create_time" property="createTime" />
+        <result column="creator" property="creator" />
+        <result column="update_time" property="updateTime" />
+        <result column="updater" property="updater" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, lottery_record_id, phone, address, status, receive_time, create_time, creator, update_time, updater
+    </sql>
+
+</mapper>
