@@ -25,6 +25,9 @@ spring:
     prefix: classpath:/templates/
     # 在构建 URL 时添加到视图名称后的后缀（默认值： .html ）
     suffix: .html
+  messages:
+    basename: i18n/message
+    encoding: UTF-8
 
 mybatis-plus:
   global-config:
