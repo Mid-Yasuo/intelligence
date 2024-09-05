@@ -39,8 +39,8 @@ public class Permission implements Serializable {
     /**
      * 权限码
      */
-    @TableField("code")
-    private String code;
+    @TableField("resource")
+    private String resource;
 
     /**
      * 权限路由

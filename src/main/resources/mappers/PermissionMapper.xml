@@ -6,7 +6,7 @@
     <resultMap id="BaseResultMap" type="com.einstein.intelligence.entity.po.Permission">
         <id column="id" property="id" />
         <result column="name" property="name" />
-        <result column="code" property="code" />
+        <result column="resource" property="resource" />
         <result column="route" property="route" />
         <result column="type" property="type" />
         <result column="status" property="status" />
@@ -19,7 +19,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, name, code, route, type, status, deleted, create_time, create_by, update_time, update_by
+        id, name, resource, route, type, status, deleted, create_time, create_by, update_time, update_by
     </sql>
 
 </mapper>
