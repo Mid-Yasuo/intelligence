@@ -1,4 +1,4 @@
-package com.einstein.intelligence.common.aop;
+package com.einstein.intelligence.configuration.aop;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;

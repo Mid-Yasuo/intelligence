@@ -7,7 +7,7 @@ import com.einstein.intelligence.entity.TokenCache;
  * @version 1.0.0
  * @date 2023/8/2
  */
-public class ContentHolder {
+public class AuthContentHolder {
 
     private static final ThreadLocal<TokenCache> AUTH_THREAD_LOCAL = new ThreadLocal<>();
 

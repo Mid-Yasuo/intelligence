@@ -1,19 +1,13 @@
-package com.einstein.intelligence.common.aop;
+package com.einstein.intelligence.configuration.aop;
 
 import com.einstein.intelligence.entity.annotation.TaskAnnotation;
-import com.einstein.intelligence.entity.constant.TaskStatusEnum;
-import com.einstein.intelligence.exception.SystemException;
-import com.einstein.intelligence.util.JsonUtils;
-import com.einstein.intelligence.util.SpringExpressionUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.util.StopWatch;
 
 import java.lang.reflect.Method;
 import java.time.LocalDate;

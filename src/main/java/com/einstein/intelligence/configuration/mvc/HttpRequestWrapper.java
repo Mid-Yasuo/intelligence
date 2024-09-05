@@ -1,4 +1,4 @@
-package com.einstein.intelligence.common.configuration.mvc;
+package com.einstein.intelligence.configuration.mvc;
 
 import com.einstein.intelligence.util.IoUtils;
 

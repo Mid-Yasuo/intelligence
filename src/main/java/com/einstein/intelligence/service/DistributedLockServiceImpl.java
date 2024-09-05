@@ -1,6 +1,6 @@
 package com.einstein.intelligence.service;
 
-import com.einstein.intelligence.common.configuration.DistributedLockClient;
+import com.einstein.intelligence.configuration.DistributedLockClient;
 import com.einstein.intelligence.util.Function;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

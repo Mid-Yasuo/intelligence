@@ -1,21 +1,18 @@
-package com.einstein.intelligence.common.configuration.mybatis;
+package com.einstein.intelligence.configuration.mybatis;
 
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.cache.CacheKey;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.BoundSql;
 import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.mapping.ParameterMapping;
-import org.apache.ibatis.plugin.Interceptor;
-import org.apache.ibatis.plugin.Intercepts;
-import org.apache.ibatis.plugin.Invocation;
-import org.apache.ibatis.plugin.Signature;
+import org.apache.ibatis.plugin.*;
 import org.apache.ibatis.reflection.MetaObject;
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.type.TypeHandlerRegistry;
-import org.springframework.stereotype.Component;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -39,11 +36,12 @@ import java.util.regex.Matcher;
  * @date 2024/1/23
  */
 @Slf4j
-@Component
 @Intercepts({
         @Signature(type = Executor.class, method = "update", args = {MappedStatement.class, Object.class}),
         @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class,
-                ResultHandler.class})
+                ResultHandler.class}),
+        @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class,
+                ResultHandler.class, CacheKey.class, BoundSql.class})
 })
 public class MybatisTsInterceptor implements Interceptor {
 
@@ -141,4 +139,8 @@ public class MybatisTsInterceptor implements Interceptor {
         return value;
     }
 
+    @Override
+    public Object plugin(Object target) {
+        return Plugin.wrap(target, this);
+    }
 }

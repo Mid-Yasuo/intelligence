@@ -1,6 +1,7 @@
 package com.einstein.intelligence.entity.po;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,7 +26,7 @@ public class AutoDatabaseConfig implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableField("id")
+    @TableId("id")
     private Long id;
 
     @TableField("host")

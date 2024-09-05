@@ -1,12 +1,12 @@
-package com.einstein.intelligence.common.configuration.mybatis;
+package com.einstein.intelligence.configuration.mybatis;
 
 import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.autoconfigure.ConfigurationCustomizer;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
-import com.baomidou.mybatisplus.extension.plugins.inner.BlockAttackInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
-import com.einstein.intelligence.common.ContentHolder;
+import com.einstein.intelligence.common.AuthContentHolder;
 import com.einstein.intelligence.entity.TokenCache;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.context.annotation.Bean;
@@ -29,7 +29,7 @@ public class MyBatisConfiguration implements MetaObjectHandler {
         Date date = new Date();
         this.strictInsertFill(metaObject, "createTime", Date.class, date);
         this.strictInsertFill(metaObject, "updateTime", Date.class, date);
-        TokenCache tokenCache = ContentHolder.getUserTokenCache();
+        TokenCache tokenCache = AuthContentHolder.getUserTokenCache();
         if (Objects.nonNull(tokenCache)) {
             this.strictInsertFill(metaObject, "creator", Long.class, tokenCache.getUserId());
             this.strictInsertFill(metaObject, "creator", Long.class, tokenCache.getUserId());
@@ -40,7 +40,7 @@ public class MyBatisConfiguration implements MetaObjectHandler {
     public void updateFill(MetaObject metaObject) {
         Date date = new Date();
         this.strictUpdateFill(metaObject, "updateTime", Date.class, date);
-        TokenCache userAuth = ContentHolder.getUserTokenCache();
+        TokenCache userAuth = AuthContentHolder.getUserTokenCache();
         if (Objects.nonNull(userAuth)) {
             this.strictInsertFill(metaObject, "updater", Long.class, userAuth.getUserId());
         }
@@ -83,8 +83,11 @@ public class MyBatisConfiguration implements MetaObjectHandler {
         //乐观锁拦截
         interceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());
 
-        //防止全表更新与删除
-        interceptor.addInnerInterceptor(new BlockAttackInnerInterceptor());
         return interceptor;
+    }
+
+    @Bean
+    public ConfigurationCustomizer configurationCustomizer() {
+        return configuration -> configuration.addInterceptor(new MybatisTsInterceptor());
     }
 }

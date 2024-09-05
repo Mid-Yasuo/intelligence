@@ -1,4 +1,4 @@
-package com.einstein.intelligence.common.configuration.async;
+package com.einstein.intelligence.configuration.async;
 
 import org.springframework.lang.NonNull;
 

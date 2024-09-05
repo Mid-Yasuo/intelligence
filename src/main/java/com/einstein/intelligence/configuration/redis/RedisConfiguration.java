@@ -2,7 +2,7 @@
  * Copyright (c) 2023.  All rights reserved.
  */
 
-package com.einstein.intelligence.common.configuration.redis;
+package com.einstein.intelligence.configuration.redis;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;

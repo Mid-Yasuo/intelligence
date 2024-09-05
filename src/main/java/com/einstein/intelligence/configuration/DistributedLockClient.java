@@ -1,6 +1,6 @@
-package com.einstein.intelligence.common.configuration;
+package com.einstein.intelligence.configuration;
 
-import com.einstein.intelligence.common.configuration.async.DistributedLockPool;
+import com.einstein.intelligence.configuration.async.DistributedLockPool;
 import com.einstein.intelligence.entity.dto.DelayedLock;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisTemplate;

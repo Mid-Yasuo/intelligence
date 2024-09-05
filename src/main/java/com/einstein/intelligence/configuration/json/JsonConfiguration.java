@@ -1,4 +1,4 @@
-package com.einstein.intelligence.common.configuration.json;
+package com.einstein.intelligence.configuration.json;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;

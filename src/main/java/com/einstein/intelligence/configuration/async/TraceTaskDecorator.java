@@ -1,6 +1,6 @@
-package com.einstein.intelligence.common.configuration.async;
+package com.einstein.intelligence.configuration.async;
 
-import com.einstein.intelligence.entity.constant.CommonConst;
+import com.einstein.intelligence.common.Constant;
 import com.einstein.intelligence.util.RandomUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -21,13 +21,13 @@ public class TraceTaskDecorator implements TaskDecorator {
     @Override
     @NonNull
     public Runnable decorate(@NonNull Runnable runnable) {
-        String traceId = StringUtils.isBlank(MDC.get(CommonConst.TRACE_ID)) ? RandomUtils.generateTraceId() : MDC.get(CommonConst.TRACE_ID);
+        String traceId = StringUtils.isBlank(MDC.get(Constant.TRACE_ID)) ? RandomUtils.generateTraceId() : MDC.get(Constant.TRACE_ID);
         return () -> {
             try {
-                MDC.put(CommonConst.TRACE_ID, traceId);
+                MDC.put(Constant.TRACE_ID, traceId);
                 runnable.run();
             } finally {
-                MDC.remove(CommonConst.TRACE_ID);
+                MDC.remove(Constant.TRACE_ID);
             }
         };
     }

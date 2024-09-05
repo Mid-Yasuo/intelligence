@@ -22,4 +22,10 @@ public class DigesterUtils {
         return md5(text, salt).equals(encode);
     }
 
+
+    public static void main(String[] args) {
+        String s = md5("Aa123456", "");
+        System.out.println("s = " + s);
+    }
+
 }
