@@ -1,6 +1,6 @@
 package com.einstein.intelligence.service.authentication;
 
-import com.einstein.intelligence.common.AuthContentHolder;
+import com.einstein.intelligence.configuration.auth.AuthContentHolder;
 import com.einstein.intelligence.configuration.TokenCacheClient;
 import com.einstein.intelligence.dao.UserDao;
 import com.einstein.intelligence.entity.TokenCache;

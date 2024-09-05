@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
-import com.einstein.intelligence.common.AuthContentHolder;
+import com.einstein.intelligence.configuration.auth.AuthContentHolder;
 import com.einstein.intelligence.entity.TokenCache;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.context.annotation.Bean;

@@ -1,7 +1,7 @@
 package com.einstein.intelligence.configuration.mvc;
 
 import com.einstein.intelligence.common.Constant;
-import com.einstein.intelligence.configuration.interceptor.AuthInterceptor;
+import com.einstein.intelligence.configuration.auth.AuthInterceptor;
 import com.einstein.intelligence.util.RandomUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.MDC;

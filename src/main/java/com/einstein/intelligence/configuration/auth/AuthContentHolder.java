@@ -1,4 +1,4 @@
-package com.einstein.intelligence.common;
+package com.einstein.intelligence.configuration.auth;
 
 import com.einstein.intelligence.entity.TokenCache;
 

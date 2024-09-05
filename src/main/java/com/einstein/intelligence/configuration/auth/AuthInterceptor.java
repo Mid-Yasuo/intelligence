@@ -1,6 +1,6 @@
-package com.einstein.intelligence.configuration.interceptor;
+package com.einstein.intelligence.configuration.auth;
 
-import com.einstein.intelligence.common.AuthContentHolder;
+import com.einstein.intelligence.configuration.auth.AuthContentHolder;
 import com.einstein.intelligence.common.Constant;
 import com.einstein.intelligence.configuration.TokenCacheClient;
 import com.einstein.intelligence.entity.TokenCache;
