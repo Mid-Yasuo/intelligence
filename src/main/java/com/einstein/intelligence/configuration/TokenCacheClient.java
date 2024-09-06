@@ -20,6 +20,7 @@ import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
 import java.util.Objects;
 
 /**
@@ -59,7 +60,8 @@ public class TokenCacheClient {
                 .setToken(token)
                 .setLoginIp(IpUtils.getRequestIp(request))
                 .setUserAgent(request.getHeader(HttpHeaders.USER_AGENT))
-                .setLoginTime(now.format(DATE_TIME_FORMATTER));
+                .setLoginTime(now.format(DATE_TIME_FORMATTER))
+                .setClientChildren(Collections.singletonList(user.getClientId()));
         RedisUtils.set(Constant.USER_TOKEN_CACHE + token, tokenCache, tokenDuration);
         return token;
     }

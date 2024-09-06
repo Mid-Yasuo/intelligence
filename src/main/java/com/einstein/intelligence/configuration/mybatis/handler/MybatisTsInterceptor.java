@@ -1,4 +1,4 @@
-package com.einstein.intelligence.configuration.mybatis;
+package com.einstein.intelligence.configuration.mybatis.handler;
 
 import com.baomidou.mybatisplus.core.toolkit.CollectionUtils;
 import lombok.extern.slf4j.Slf4j;

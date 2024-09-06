@@ -3,6 +3,8 @@ package com.einstein.intelligence.entity;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+import java.util.List;
+
 /**
  * @author 张春杰
  * @version 1.0.0
@@ -23,4 +25,6 @@ public class TokenCache {
     private String userAgent;
 
     private String loginTime;
+
+    private List<String> clientChildren;
 }

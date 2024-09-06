@@ -7,6 +7,8 @@ import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.einstein.intelligence.configuration.auth.AuthContentHolder;
+import com.einstein.intelligence.configuration.mybatis.handler.MybatisDataPermissionInterceptor;
+import com.einstein.intelligence.configuration.mybatis.handler.MybatisTsInterceptor;
 import com.einstein.intelligence.entity.TokenCache;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.context.annotation.Bean;
@@ -82,6 +84,7 @@ public class MyBatisConfiguration implements MetaObjectHandler {
         interceptor.addInnerInterceptor(paginationInnerInterceptor);
         //乐观锁拦截
         interceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());
+        interceptor.addInnerInterceptor(new MybatisDataPermissionInterceptor());
 
         return interceptor;
     }
