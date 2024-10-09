@@ -11,6 +11,8 @@ import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 
+import java.lang.reflect.Method;
+
 /**
  * @author 张春杰
  * @version 1.0.0
@@ -33,9 +35,10 @@ public class StopWatchAop implements Ordered {
 
     @Around("stopWatchPoint()")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
-        Class<?> clazz = joinPoint.getTarget().getClass();
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
-        String methodName = signature.getMethod().getName();
+        Method method = signature.getMethod();
+        Class<?> clazz = method.getDeclaringClass();
+        String methodName = method.getName();
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
         try {

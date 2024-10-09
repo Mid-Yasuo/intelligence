@@ -1,5 +1,7 @@
 package com.einstein.intelligence.entity.vo;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -17,4 +19,8 @@ public class PageParam {
     private Integer pageSize;
 
     private Integer total;
+
+    public <T> IPage<T> toMybatisPage() {
+        return new Page<>(pageNo, pageSize);
+    }
 }

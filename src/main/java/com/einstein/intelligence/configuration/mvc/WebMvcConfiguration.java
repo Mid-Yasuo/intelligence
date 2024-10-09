@@ -1,6 +1,6 @@
 package com.einstein.intelligence.configuration.mvc;
 
-import com.einstein.intelligence.common.Constant;
+import com.einstein.intelligence.constant.Constant;
 import com.einstein.intelligence.configuration.auth.AuthInterceptor;
 import com.einstein.intelligence.util.RandomUtils;
 import org.apache.commons.lang3.StringUtils;

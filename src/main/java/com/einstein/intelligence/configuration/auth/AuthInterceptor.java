@@ -1,11 +1,10 @@
 package com.einstein.intelligence.configuration.auth;
 
-import com.einstein.intelligence.configuration.auth.AuthContentHolder;
-import com.einstein.intelligence.common.Constant;
+import com.einstein.intelligence.constant.Constant;
 import com.einstein.intelligence.configuration.TokenCacheClient;
 import com.einstein.intelligence.entity.TokenCache;
 import com.einstein.intelligence.entity.annotation.RequireAuthentication;
-import com.einstein.intelligence.entity.constant.BusinessEnum;
+import com.einstein.intelligence.constant.BusinessEnum;
 import com.einstein.intelligence.exception.BusinessException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;

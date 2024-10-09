@@ -1,4 +1,4 @@
-package com.einstein.intelligence.entity.vo.response;
+package com.einstein.intelligence.entity.vo.resp;
 
 import com.einstein.intelligence.entity.po.User;
 import lombok.Data;

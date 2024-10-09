@@ -37,7 +37,7 @@ public class RedisConfiguration {
         // 设支置持事物
         redisTemplate.setEnableTransactionSupport(true);
         redisTemplate.afterPropertiesSet();
-        log.info("redisTemplate init config");
+        log.info("===>>> redisTemplate init config <<<===");
         return redisTemplate;
     }
 

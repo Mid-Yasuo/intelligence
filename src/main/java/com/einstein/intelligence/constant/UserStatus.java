@@ -1,4 +1,4 @@
-package com.einstein.intelligence.entity.constant;
+package com.einstein.intelligence.constant;
 
 /**
  * @author 张春杰
@@ -13,7 +13,7 @@ public enum UserStatus {
     NORMAL(1, "正常"),
     LOCK(2, "锁定"),
     FORBIDDEN(3, "禁用"),
-    LOG_OFF(4, "注销"),
+    LOGOUT(4, "注销"),
     ;
     int code;
 

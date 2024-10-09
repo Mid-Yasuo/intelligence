@@ -1,9 +1,9 @@
-package com.einstein.intelligence.controller.user;
+package com.einstein.intelligence.controller.auth;
 
 import com.einstein.intelligence.entity.annotation.RequireAuthentication;
 import com.einstein.intelligence.entity.vo.Result;
-import com.einstein.intelligence.entity.vo.request.LoginRequest;
-import com.einstein.intelligence.entity.vo.response.OnlineUser;
+import com.einstein.intelligence.entity.vo.req.LoginRequest;
+import com.einstein.intelligence.entity.vo.resp.OnlineUser;
 import com.einstein.intelligence.service.authentication.AuthenticationService;
 import org.springframework.web.bind.annotation.*;
 

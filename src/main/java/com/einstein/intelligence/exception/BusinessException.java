@@ -1,7 +1,7 @@
 package com.einstein.intelligence.exception;
 
 
-import com.einstein.intelligence.entity.constant.BusinessEnum;
+import com.einstein.intelligence.constant.BusinessEnum;
 
 /**
  * @author 张春杰

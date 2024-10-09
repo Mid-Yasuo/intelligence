@@ -1,6 +1,6 @@
 package com.einstein.intelligence.entity.vo;
 
-import com.einstein.intelligence.entity.constant.BusinessEnum;
+import com.einstein.intelligence.constant.BusinessEnum;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 

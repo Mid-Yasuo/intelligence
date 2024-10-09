@@ -1,4 +1,4 @@
-package com.einstein.intelligence.entity.constant;
+package com.einstein.intelligence.constant;
 
 import lombok.Getter;
 

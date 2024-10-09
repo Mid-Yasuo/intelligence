@@ -12,20 +12,20 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class PageResult<D> extends Result<D> {
 
-    private int totalCount;
+    private long totalCount;
 
-    private int pageCount;
+    private long pageCount;
 
-    private int pageNo;
+    private long pageNo;
 
-    private int pageSize;
+    private long pageSize;
 
-    public PageResult(int totalCount, int pageNo, int pageSize, D d) {
+    public PageResult(long totalCount, long pageNo, long pageSize, D d) {
         this.setCode(200);
         this.setMsg("操作成功");
         this.totalCount = totalCount;
         this.pageCount = totalCount / pageSize;
-        int remainder = totalCount % pageSize;
+        long remainder = totalCount % pageSize;
         if (remainder > 0) {
             this.pageCount++;
         }
@@ -33,4 +33,5 @@ public class PageResult<D> extends Result<D> {
         this.pageSize = pageSize;
         this.setData(d);
     }
+
 }

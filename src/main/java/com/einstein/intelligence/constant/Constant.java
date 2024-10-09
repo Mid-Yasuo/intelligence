@@ -1,4 +1,4 @@
-package com.einstein.intelligence.common;
+package com.einstein.intelligence.constant;
 
 /**
  * @author 张春杰

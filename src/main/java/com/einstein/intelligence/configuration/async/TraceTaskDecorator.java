@@ -1,6 +1,6 @@
 package com.einstein.intelligence.configuration.async;
 
-import com.einstein.intelligence.common.Constant;
+import com.einstein.intelligence.constant.Constant;
 import com.einstein.intelligence.util.RandomUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;

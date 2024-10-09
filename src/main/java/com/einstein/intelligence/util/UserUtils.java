@@ -1,7 +1,7 @@
 package com.einstein.intelligence.util;
 
-import com.einstein.intelligence.entity.constant.BusinessEnum;
-import com.einstein.intelligence.entity.constant.UserStatus;
+import com.einstein.intelligence.constant.BusinessEnum;
+import com.einstein.intelligence.constant.UserStatus;
 import com.einstein.intelligence.entity.po.User;
 import com.einstein.intelligence.exception.authentication.AuthenticationException;
 
@@ -23,7 +23,7 @@ public class UserUtils {
         if (UserStatus.FORBIDDEN.getCode() == status) {
             throw new AuthenticationException(authUser.getUsername(), BusinessEnum.USER_FORBIDDEN_ERROR);
         }
-        if (UserStatus.LOG_OFF.getCode() == status) {
+        if (UserStatus.LOGOUT.getCode() == status) {
             throw new AuthenticationException(authUser.getUsername(), BusinessEnum.USER_CANCEL_ACCOUNT_ERROR);
         }
     }

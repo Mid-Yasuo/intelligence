@@ -1,9 +1,9 @@
 package com.einstein.intelligence.configuration;
 
-import com.einstein.intelligence.common.Constant;
+import com.einstein.intelligence.constant.Constant;
 import com.einstein.intelligence.entity.TokenCache;
 import com.einstein.intelligence.entity.annotation.DistributedLock;
-import com.einstein.intelligence.entity.constant.BusinessEnum;
+import com.einstein.intelligence.constant.BusinessEnum;
 import com.einstein.intelligence.entity.po.User;
 import com.einstein.intelligence.exception.BusinessException;
 import com.einstein.intelligence.exception.authentication.AuthenticationException;

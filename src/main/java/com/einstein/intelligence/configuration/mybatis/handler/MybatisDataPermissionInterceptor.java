@@ -3,8 +3,8 @@ package com.einstein.intelligence.configuration.mybatis.handler;
 import com.baomidou.mybatisplus.core.toolkit.PluginUtils;
 import com.baomidou.mybatisplus.extension.parser.JsqlParserSupport;
 import com.baomidou.mybatisplus.extension.plugins.inner.InnerInterceptor;
-import com.einstein.intelligence.common.Constant;
 import com.einstein.intelligence.configuration.auth.AuthContentHolder;
+import com.einstein.intelligence.constant.Constant;
 import com.einstein.intelligence.entity.TokenCache;
 import com.einstein.intelligence.util.CollectionUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -53,6 +53,8 @@ public class MybatisDataPermissionInterceptor extends JsqlParserSupport implemen
             List<SelectBody> selectBodyList = setOperationList.getSelects();
             selectBodyList.forEach(s -> this.setWhere((PlainSelect) s, (String) obj));
         }
+        String selectSql = select.toString();
+        System.out.println("selectSql = " + selectSql);
     }
 
     /**

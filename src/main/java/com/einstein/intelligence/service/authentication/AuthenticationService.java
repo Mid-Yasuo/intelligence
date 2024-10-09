@@ -1,7 +1,7 @@
 package com.einstein.intelligence.service.authentication;
 
-import com.einstein.intelligence.entity.vo.request.LoginRequest;
-import com.einstein.intelligence.entity.vo.response.OnlineUser;
+import com.einstein.intelligence.entity.vo.req.LoginRequest;
+import com.einstein.intelligence.entity.vo.resp.OnlineUser;
 
 /**
  * @author 张春杰

@@ -45,10 +45,9 @@
 
     <logger name="org.springframework.data.convert.CustomConversions" level="error"/>
     <logger name="io.lettuce.core.protocol" level="warn"/>
-    <logger name="com.chunjie.lottery.datasource.mapper" level="info"/>
-    <logger name="com.einstein.intelligence.configuration.mybatis.handler.MybatisTsInterceptor" level="info" additivity="false">
-        <appender-ref ref="sql-log-file" />
-    </logger>
+<!--    <logger name="com.einstein.intelligence.configuration.mybatis.handler.MybatisTsInterceptor" level="info" additivity="false">-->
+<!--        <appender-ref ref="sql-log-file" />-->
+<!--    </logger>-->
     <!-- 日志输出级别 -->
     <root level="INFO">
         <appender-ref ref="console"/>

@@ -1,6 +1,6 @@
 package com.einstein.intelligence.exception.authentication;
 
-import com.einstein.intelligence.entity.constant.BusinessEnum;
+import com.einstein.intelligence.constant.BusinessEnum;
 import com.einstein.intelligence.exception.BaseException;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

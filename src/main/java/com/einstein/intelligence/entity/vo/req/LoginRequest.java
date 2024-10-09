@@ -1,4 +1,4 @@
-package com.einstein.intelligence.entity.vo.request;
+package com.einstein.intelligence.entity.vo.req;
 
 import lombok.Data;
 

@@ -1,6 +1,7 @@
 package com.einstein.intelligence.configuration.mybatis.handler;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -16,6 +17,6 @@ public interface IgnoreDataPermissionHandler {
      * @return
      */
     default List<String> ignoreTables() {
-        return Arrays.asList("cmp_role");
+        return Collections.singletonList("cmp_role");
     }
 }
