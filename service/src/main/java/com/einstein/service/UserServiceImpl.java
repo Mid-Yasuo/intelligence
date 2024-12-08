@@ -25,7 +25,13 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
     }
 
     @Override
-    public IPage<User> getUsers(String username, Integer pageNo, Integer pageSize) {
+    public IPage<User> listUsers(String username, Integer pageNo, Integer pageSize) {
         return userDao.selectUsers(username, new Page<>(pageNo, pageSize));
+    }
+
+    @Override
+    public User getByUsername(String username) {
+        return userDao.selectByUsername(username);
+
     }
 }

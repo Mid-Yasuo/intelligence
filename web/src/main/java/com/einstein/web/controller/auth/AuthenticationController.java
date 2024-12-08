@@ -4,7 +4,7 @@ import com.einstein.common.entity.annotation.RequireAuthentication;
 import com.einstein.web.entity.vo.Result;
 import com.einstein.web.entity.vo.req.LoginRequest;
 import com.einstein.web.entity.vo.resp.OnlineUser;
-import com.einstein.web.service.AuthenticationService;
+import com.einstein.web.service.authentication.AuthenticationService;
 import org.springframework.web.bind.annotation.*;
 
 /**

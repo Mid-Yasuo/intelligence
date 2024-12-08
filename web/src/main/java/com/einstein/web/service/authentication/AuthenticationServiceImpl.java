@@ -1,4 +1,4 @@
-package com.einstein.web.service;
+package com.einstein.web.service.authentication;
 
 import com.einstein.common.configuation.AuthContentHolder;
 import com.einstein.common.constant.BusinessEnum;
@@ -6,9 +6,8 @@ import com.einstein.common.entity.TokenCache;
 import com.einstein.common.entity.exception.authentication.AuthenticationException;
 import com.einstein.common.entity.exception.authentication.UnauthorizedException;
 import com.einstein.common.util.DigesterUtils;
-import com.einstein.database.dao.UserDao;
 import com.einstein.database.entity.po.User;
-import com.einstein.web.configuration.TokenCacheClient;
+import com.einstein.service.UserService;
 import com.einstein.web.entity.vo.req.LoginRequest;
 import com.einstein.web.entity.vo.resp.OnlineUser;
 import com.einstein.web.util.UserUtils;
@@ -26,23 +25,23 @@ import org.springframework.stereotype.Service;
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
 
-    private UserDao userDao;
+    private UserService userService;
 
-    private TokenCacheClient tokenCacheClient;
+    private TokenService tokenService;
 
     @Autowired
-    public void setUserDao(UserDao userDao) {
-        this.userDao = userDao;
+    public void setUserService(UserService userService) {
+        this.userService = userService;
     }
 
     @Autowired
-    public void setTokenCacheClient(TokenCacheClient tokenCacheClient) {
-        this.tokenCacheClient = tokenCacheClient;
+    public void setTokenService(TokenService tokenService) {
+        this.tokenService = tokenService;
     }
 
     @Override
     public String login(LoginRequest loginRequest) {
-        User authUser = userDao.selectByUsername(loginRequest.getUsername());
+        User authUser = userService.getByUsername(loginRequest.getUsername());
         if (authUser == null) {
             throw new AuthenticationException(loginRequest.getUsername(), BusinessEnum.USER_PASSWORD_ERROR);
         }
@@ -52,7 +51,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         if (BooleanUtils.isFalse(match)) {
             throw new AuthenticationException(loginRequest.getUsername(), BusinessEnum.USER_PASSWORD_ERROR);
         }
-        return tokenCacheClient.handleInitCacheToken(authUser);
+        return tokenService.handleInitCacheToken(authUser);
     }
 
     @Override
@@ -62,7 +61,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
             throw new UnauthorizedException(BusinessEnum.USER_NOT_LOGIN);
         }
         long userId = tokenCache.getUserId();
-        User authUser = userDao.selectById(userId);
+        User authUser = userService.getById(userId);
         UserUtils.checkUser(authUser);
         return OnlineUser.transfer(authUser);
     }

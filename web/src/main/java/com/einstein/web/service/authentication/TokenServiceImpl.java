@@ -1,4 +1,4 @@
-package com.einstein.web.configuration;
+package com.einstein.web.service.authentication;
 
 import com.einstein.common.constant.BusinessEnum;
 import com.einstein.common.constant.Constant;
@@ -7,15 +7,16 @@ import com.einstein.common.entity.annotation.DistributedLock;
 import com.einstein.common.entity.exception.BusinessException;
 import com.einstein.common.entity.exception.authentication.AuthenticationException;
 import com.einstein.common.util.RandomUtils;
-import com.einstein.service.util.RedisUtils;
 import com.einstein.database.entity.po.User;
 import com.einstein.service.UserService;
+import com.einstein.service.util.RedisUtils;
 import com.einstein.web.util.IpUtils;
 import com.einstein.web.util.UserUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
@@ -26,10 +27,11 @@ import java.util.Objects;
 /**
  * @author 张春杰
  * @version 1.0.0
- * @date 2024/1/6
+ * @date 2024/12/7
  */
-@Component
-public class TokenCacheClient {
+@Slf4j
+@Service
+public class TokenServiceImpl implements TokenService {
 
     public static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern(Constant.DATE_FORMAT_PATTERN);
 
@@ -51,6 +53,7 @@ public class TokenCacheClient {
     }
 
     @DistributedLock(keyPrefix = "handleInitCacheToken:", keyValue = "#user.username")
+    @Override
     public String handleInitCacheToken(User user) {
         String token = RandomUtils.numRandom(20);
         LocalDateTime now = LocalDateTime.now();
@@ -66,6 +69,8 @@ public class TokenCacheClient {
         return token;
     }
 
+    @Override
+    @stop
     public TokenCache refreshCacheToken(String token) {
         TokenCache tokenCache = (TokenCache) RedisUtils.getValue(Constant.USER_TOKEN_CACHE + token);
         if (tokenCache == null) {

@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-public class TraceTaskDecorator implements TaskDecorator {
+public class ThreadPoolDecorator implements TaskDecorator {
 
     @Override
     @NonNull

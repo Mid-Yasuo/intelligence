@@ -1,4 +1,4 @@
-package com.einstein.web.configuration;
+package com.einstein.web.configuration.interceptor;
 
 import com.einstein.common.configuation.AuthContentHolder;
 import com.einstein.common.constant.BusinessEnum;
@@ -6,6 +6,7 @@ import com.einstein.common.constant.Constant;
 import com.einstein.common.entity.TokenCache;
 import com.einstein.common.entity.exception.BusinessException;
 import com.einstein.common.entity.annotation.RequireAuthentication;
+import com.einstein.web.service.authentication.TokenService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,17 +29,17 @@ import java.util.Objects;
 @Configuration
 public class AuthInterceptor implements HandlerInterceptor {
 
-    private TokenCacheClient tokenCacheClient;
+    private TokenService tokenService;
 
     @Autowired
-    public void setTokenCacheClient(TokenCacheClient tokenCacheClient) {
-        this.tokenCacheClient = tokenCacheClient;
+    public void setTokenService(TokenService tokenService) {
+        this.tokenService = tokenService;
     }
 
     @Override
     public boolean preHandle(@NonNull HttpServletRequest request,
                              @NonNull HttpServletResponse response,
-                             @NonNull Object handler) throws Exception {
+                             @NonNull Object handler) {
         if (handler instanceof HandlerMethod) {
             HandlerMethod handle = (HandlerMethod) handler;
             Method method = handle.getMethod();
@@ -56,7 +57,7 @@ public class AuthInterceptor implements HandlerInterceptor {
         if (StringUtils.isBlank(authorization)) {
             throw new BusinessException(BusinessEnum.USER_TOKEN_EMPTY);
         }
-        TokenCache tokenCache = tokenCacheClient.refreshCacheToken(authorization);
+        TokenCache tokenCache = tokenService.refreshCacheToken(authorization);
         AuthContentHolder.setUserTokenCache(tokenCache);
         return true;
     }

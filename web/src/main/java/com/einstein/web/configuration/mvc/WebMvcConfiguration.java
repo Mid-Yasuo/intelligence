@@ -2,7 +2,7 @@ package com.einstein.web.configuration.mvc;
 
 import com.einstein.common.constant.Constant;
 import com.einstein.common.util.RandomUtils;
-import com.einstein.web.configuration.AuthInterceptor;
+import com.einstein.web.configuration.interceptor.AuthInterceptor;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.MDC;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;

@@ -1,6 +1,5 @@
-package com.einstein.database.configuration;
+package com.einstein.database.configuration.mybatis;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 

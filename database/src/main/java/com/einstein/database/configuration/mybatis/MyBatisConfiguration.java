@@ -1,4 +1,4 @@
-package com.einstein.database.configuration;
+package com.einstein.database.configuration.mybatis;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;

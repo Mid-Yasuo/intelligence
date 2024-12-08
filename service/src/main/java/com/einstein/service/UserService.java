@@ -14,5 +14,19 @@ import com.einstein.database.entity.po.User;
  */
 public interface UserService extends IService<User> {
 
-    IPage<User> getUsers(String username, Integer pageNo, Integer pageSize);
+    /**
+     * 查询用户例表
+     * @param username
+     * @param pageNo
+     * @param pageSize
+     * @return
+     */
+    IPage<User> listUsers(String username, Integer pageNo, Integer pageSize);
+
+    /**
+     * 根据username 获取用户信息
+     * @param username
+     * @return
+     */
+    User getByUsername(String username);
 }

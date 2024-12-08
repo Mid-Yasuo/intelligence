@@ -30,7 +30,7 @@ public class UserController {
 
     @PostMapping("/list")
     public PageResult<List<UserVO>> list(@RequestBody GetUsersReq getUsersReq) {
-        IPage<User> page = userService.getUsers(getUsersReq.getUsername(),getUsersReq.getPageParam().getPageNo(), getUsersReq.getPageParam().getPageSize());
+        IPage<User> page = userService.listUsers(getUsersReq.getUsername(),getUsersReq.getPageParam().getPageNo(), getUsersReq.getPageParam().getPageSize());
         return new PageResult<>(page.getTotal(), page.getCurrent(), page.getSize(),
                 page.getRecords().stream().map(UserVO::build).collect(Collectors.toList()));
     }

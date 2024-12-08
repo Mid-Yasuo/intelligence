@@ -51,7 +51,7 @@ public class AsyncThreadFactory extends ScheduledThreadPoolExecutor {
     protected void afterExecute(Runnable r, Throwable t) {
         super.afterExecute(r, t);
         if (Objects.nonNull(t)) {
-            log.error("异步线程执行失败：", t);
+            log.error("async thread execute error.", t);
         }
     }
 

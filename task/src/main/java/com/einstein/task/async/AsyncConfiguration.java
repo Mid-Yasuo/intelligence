@@ -22,15 +22,17 @@ import java.util.concurrent.ThreadPoolExecutor;
 @Component
 public class AsyncConfiguration {
 
-    @Value("${com.einstein.task.async.coreSize}")
+    @Value("${async.coreSize}")
     private Integer coreSize;
 
+    @Value("${async.maxSize}")
+    private Integer maxSize;
 
-    private TraceTaskDecorator traceTaskDecorator;
+    private ThreadPoolDecorator threadPoolDecorator;
 
     @Autowired
-    public void setTraceTaskDecorator(TraceTaskDecorator traceTaskDecorator) {
-        this.traceTaskDecorator = traceTaskDecorator;
+    public void setTraceTaskDecorator(ThreadPoolDecorator threadPoolDecorator) {
+        this.threadPoolDecorator = threadPoolDecorator;
     }
 
 
@@ -38,9 +40,9 @@ public class AsyncConfiguration {
     public ThreadPoolTaskExecutor taskThreadPool() {
         ThreadPoolTaskExecutor scheduler = new ThreadPoolTaskExecutor();
         scheduler.setCorePoolSize(coreSize);
-        scheduler.setMaxPoolSize(2 * coreSize);
+        scheduler.setMaxPoolSize(maxSize);
         scheduler.setQueueCapacity(300);
-        scheduler.setTaskDecorator(traceTaskDecorator);
+        scheduler.setTaskDecorator(threadPoolDecorator);
         scheduler.setWaitForTasksToCompleteOnShutdown(true);
         scheduler.setThreadNamePrefix("schedule-task-thread-");
         scheduler.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());

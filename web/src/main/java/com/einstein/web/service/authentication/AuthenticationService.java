@@ -1,4 +1,4 @@
-package com.einstein.web.service;
+package com.einstein.web.service.authentication;
 
 
 import com.einstein.web.entity.vo.req.LoginRequest;

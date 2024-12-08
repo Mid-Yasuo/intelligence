@@ -1,18 +1,18 @@
 package com.einstein.database.dao;
 
+import com.einstein.database.entity.po.TaskVariable;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.einstein.database.entity.po.AutoDatabaseConfig;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
  * <p>
- * 数据库配置表 Mapper 接口
+ *  Mapper 接口
  * </p>
  *
  * @author ZhangChunjie
- * @since 2024-08-18
+ * @since 2024-12-07
  */
 @Mapper
-public interface AutoDatabaseConfigDao extends BaseMapper<AutoDatabaseConfig> {
+public interface TaskVariableDao extends BaseMapper<TaskVariable> {
 
 }
