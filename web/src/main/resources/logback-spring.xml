@@ -26,29 +26,29 @@
             <MaxFileSize>20MB</MaxFileSize>
         </triggeringPolicy>
     </appender>
-    <appender name="sql-log-file" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!--日志文件名-->
-            <FileNamePattern>${logDir}/${app}-%d{yyyy-MM-dd}-sql.log</FileNamePattern>
-            <!--保留天数-->
-            <MaxHistory>30</MaxHistory>
-        </rollingPolicy>
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%X{TRACE_ID}] %-5level %logger{50} - %msg%n</pattern>
-        </encoder>
-        <!--日志文件最大的大小-->
-        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
-            <MaxFileSize>20MB</MaxFileSize>
-        </triggeringPolicy>
-    </appender>
+    <!--    <appender name="sql-log-file" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+    <!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+    <!--            &lt;!&ndash;日志文件名&ndash;&gt;-->
+    <!--            <FileNamePattern>${logDir}/${app}-%d{yyyy-MM-dd}-sql.log</FileNamePattern>-->
+    <!--            &lt;!&ndash;保留天数&ndash;&gt;-->
+    <!--            <MaxHistory>30</MaxHistory>-->
+    <!--        </rollingPolicy>-->
+    <!--        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">-->
+    <!--            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%X{TRACE_ID}] %-5level %logger{50} - %msg%n</pattern>-->
+    <!--        </encoder>-->
+    <!--        &lt;!&ndash;日志文件最大的大小&ndash;&gt;-->
+    <!--        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">-->
+    <!--            <MaxFileSize>20MB</MaxFileSize>-->
+    <!--        </triggeringPolicy>-->
+    <!--    </appender>-->
 
 
     <logger name="org.springframework.data.convert.CustomConversions" level="error"/>
     <logger name="io.lettuce.core.protocol" level="warn"/>
     <logger name="om.einstein" level="debug"/>
-<!--    <logger name="com.einstein.intelligence.configuration.mybatis.handler.MybatisTsInterceptor" level="info" additivity="false">-->
-<!--        <appender-ref ref="sql-log-file" />-->
-<!--    </logger>-->
+    <!--    <logger name="com.einstein.intelligence.configuration.mybatis.handler.MybatisTsInterceptor" level="info" additivity="false">-->
+    <!--        <appender-ref ref="sql-log-file" />-->
+    <!--    </logger>-->
     <!-- 日志输出级别 -->
     <root level="INFO">
         <appender-ref ref="console"/>

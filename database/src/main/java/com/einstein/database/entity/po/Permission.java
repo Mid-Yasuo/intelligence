@@ -76,7 +76,7 @@ public class Permission implements Serializable {
      * 创建用户
      */
     @TableField("create_by")
-    private String createBy;
+    private Long createBy;
 
     /**
      * 修改时间

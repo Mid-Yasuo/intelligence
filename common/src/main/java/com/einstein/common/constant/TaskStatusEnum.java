@@ -2,24 +2,40 @@ package com.einstein.common.constant;
 
 import lombok.Getter;
 
+import java.util.Arrays;
+
 /**
  * @author 张春杰
  * @version 1.0.0
- * @date 2024/1/7
+ * @date 2024/12/8
  */
-@Getter
 public enum TaskStatusEnum {
+
     /**
-     * 任务状态:0-进行中 1-已完成 2-执行失败
+     * 任务状态枚举
      */
-    STARTED(0),
-    SUCCESS(1),
-    ERROR(2),
-    ;
-    private final int code;
+    NORMAL(1, "normal"),
+    RUNNING(2, "running");
 
+    @Getter
+    private final Integer status;
 
-    TaskStatusEnum(int code) {
-        this.code = code;
+    @Getter
+    private final String description;
+
+    TaskStatusEnum(int status, String description) {
+        this.status = status;
+        this.description = description;
+    }
+
+    public static String getReadableStatus(Integer status) {
+        if (status == null) {
+            return "unknown";
+        }
+        TaskStatusEnum t = Arrays.stream(values()).filter(s -> s.getStatus().equals(status)).findFirst().orElse(null);
+        if (t == null) {
+            return "unknown";
+        }
+        return t.description;
     }
 }

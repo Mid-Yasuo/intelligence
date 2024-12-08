@@ -4,15 +4,16 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
+import java.util.Date;
+
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author ZhangChunjie
@@ -68,6 +69,9 @@ public class TaskStepLog implements Serializable {
     @TableField("response_body")
     private String responseBody;
 
+    @TableField("response_file")
+    private String responseFile;
+
     @TableField("ts")
     private Long ts;
 
@@ -86,5 +90,15 @@ public class TaskStepLog implements Serializable {
     @TableField("update_time")
     private Date updateTime;
 
+
+    public static TaskStepLog build(Long taskLogId, Long taskId, Long taskStepId, String requestUrl, String requestMethod,
+                                    String requestHeaders, String requestBody) {
+        return new TaskStepLog().setTaskLogId(taskLogId).setTaskId(taskId)
+                .setTaskStepId(taskStepId)
+                .setStartTime(new Date())
+                .setRequestUrl(requestUrl)
+                .setRequestMethod(requestMethod).setRequestHeaders(requestHeaders)
+                .setRequestBody(requestBody);
+    }
 
 }

@@ -3,7 +3,7 @@ package com.einstein.web.configuration.aop;
 import com.einstein.common.entity.annotation.DistributedLock;
 import com.einstein.common.entity.exception.SystemException;
 import com.einstein.common.util.SpringExpressionUtils;
-import com.einstein.service.DistributedLockService;
+import com.einstein.service.lock.DistributedLockService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.ProceedingJoinPoint;

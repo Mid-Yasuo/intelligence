@@ -63,18 +63,6 @@ public class TaskStep implements Serializable {
     private String requestBody;
 
     /**
-     * 响应体
-     */
-    @TableField("response_headers")
-    private String responseHeaders;
-
-    /**
-     * 响应体
-     */
-    @TableField("response_body")
-    private String responseBody;
-
-    /**
      * 任务步骤序号
      */
     @TableField("task_step_sort")

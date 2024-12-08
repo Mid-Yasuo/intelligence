@@ -57,8 +57,8 @@ public class Task implements Serializable {
     /**
      * 客户 ID
      */
-    @TableField("client_id")
-    private Long clientId;
+    @TableField(value = "client_id",fill = FieldFill.INSERT)
+    private String clientId;
 
     /**
      * 状态 1-正常
@@ -76,25 +76,25 @@ public class Task implements Serializable {
     /**
      * 创建时间
      */
-    @TableField("create_time")
+    @TableField(value = "create_time",fill = FieldFill.INSERT)
     private Date createTime;
 
     /**
      * 创建用户
      */
-    @TableField("create_by")
+    @TableField(value = "create_by",fill = FieldFill.INSERT)
     private Long createBy;
 
     /**
      * 修改时间
      */
-    @TableField("update_time")
+    @TableField(value = "update_time",fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
 
     /**
      * 修改用户
      */
-    @TableField("update_by")
+    @TableField(value = "update_by",fill = FieldFill.INSERT_UPDATE)
     private Long updateBy;
 
 

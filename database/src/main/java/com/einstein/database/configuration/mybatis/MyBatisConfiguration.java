@@ -32,8 +32,9 @@ public class MyBatisConfiguration implements MetaObjectHandler {
         this.strictInsertFill(metaObject, "updateTime", Date.class, date);
         TokenCache tokenCache = AuthContentHolder.getUserTokenCache();
         if (Objects.nonNull(tokenCache)) {
-            this.strictInsertFill(metaObject, "creator", Long.class, tokenCache.getUserId());
-            this.strictInsertFill(metaObject, "creator", Long.class, tokenCache.getUserId());
+            this.strictInsertFill(metaObject, "createBy", Long.class, tokenCache.getUserId());
+            this.strictInsertFill(metaObject, "updateBy", Long.class, tokenCache.getUserId());
+            this.strictInsertFill(metaObject, "clientId", String.class, tokenCache.getClientId());
         }
     }
 
@@ -41,9 +42,9 @@ public class MyBatisConfiguration implements MetaObjectHandler {
     public void updateFill(MetaObject metaObject) {
         Date date = new Date();
         this.strictUpdateFill(metaObject, "updateTime", Date.class, date);
-        TokenCache userAuth = AuthContentHolder.getUserTokenCache();
-        if (Objects.nonNull(userAuth)) {
-            this.strictInsertFill(metaObject, "updater", Long.class, userAuth.getUserId());
+        TokenCache tokenCache = AuthContentHolder.getUserTokenCache();
+        if (Objects.nonNull(tokenCache)) {
+            this.strictInsertFill(metaObject, "updateBy", Long.class, tokenCache.getUserId());
         }
     }
 

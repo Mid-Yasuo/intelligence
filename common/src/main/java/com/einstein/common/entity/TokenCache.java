@@ -26,5 +26,7 @@ public class TokenCache {
 
     private String loginTime;
 
+    private String clientId;
+
     private List<String> clientChildren;
 }

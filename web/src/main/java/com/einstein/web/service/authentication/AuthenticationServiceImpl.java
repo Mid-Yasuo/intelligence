@@ -7,7 +7,7 @@ import com.einstein.common.entity.exception.authentication.AuthenticationExcepti
 import com.einstein.common.entity.exception.authentication.UnauthorizedException;
 import com.einstein.common.util.DigesterUtils;
 import com.einstein.database.entity.po.User;
-import com.einstein.service.UserService;
+import com.einstein.service.user.UserService;
 import com.einstein.web.entity.vo.req.LoginRequest;
 import com.einstein.web.entity.vo.resp.OnlineUser;
 import com.einstein.web.util.UserUtils;

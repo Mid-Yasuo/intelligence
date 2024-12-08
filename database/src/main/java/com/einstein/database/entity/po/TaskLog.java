@@ -1,14 +1,12 @@
 package com.einstein.database.entity.po;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.util.Date;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -57,7 +55,7 @@ public class TaskLog implements Serializable {
     private Long ts;
 
     /**
-     * 状态 1-成功 2-失败
+     * 状态 0- 进行中 1-成功 2-失败
      */
     @TableField("status")
     private Integer status;
@@ -65,31 +63,31 @@ public class TaskLog implements Serializable {
     /**
      * 客户 ID
      */
-    @TableField("client_id")
-    private Long clientId;
+    @TableField(value = "client_id",fill = FieldFill.INSERT)
+    private String clientId;
 
     /**
      * 创建时间
      */
-    @TableField("create_time")
+    @TableField(value = "create_time", fill = FieldFill.INSERT)
     private Date createTime;
 
     /**
      * 创建用户
      */
-    @TableField("create_by")
+    @TableField(value = "create_by", fill = FieldFill.INSERT)
     private Long createBy;
 
     /**
      * 修改时间
      */
-    @TableField("update_time")
+    @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
 
     /**
      * 修改用户
      */
-    @TableField("update_by")
+    @TableField(value = "update_by", fill = FieldFill.INSERT_UPDATE)
     private Long updateBy;
 
 

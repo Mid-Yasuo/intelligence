@@ -2,7 +2,7 @@ package com.einstein.web.controller.user;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.einstein.database.entity.po.User;
-import com.einstein.service.UserService;
+import com.einstein.service.user.UserService;
 import com.einstein.web.entity.vo.PageResult;
 import com.einstein.web.entity.vo.req.user.GetUsersReq;
 import com.einstein.web.entity.vo.resp.user.UserVO;

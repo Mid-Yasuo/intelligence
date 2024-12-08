@@ -56,13 +56,13 @@ public class UserRole implements Serializable {
     private Date createTime;
 
     @TableField("create_by")
-    private String createBy;
+    private Long createBy;
 
     @TableField("update_time")
     private Date updateTime;
 
     @TableField("update_by")
-    private String updateBy;
+    private Long updateBy;
 
 
 }

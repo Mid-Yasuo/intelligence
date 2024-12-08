@@ -4,31 +4,34 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.einstein.database.entity.po.TaskStepLog">
-        <id column="id" property="id" />
-        <result column="task_log_id" property="taskLogId" />
-        <result column="task_id" property="taskId" />
-        <result column="task_step_id" property="taskStepId" />
-        <result column="start_time" property="startTime" />
-        <result column="end_time" property="endTime" />
-        <result column="request_url" property="requestUrl" />
-        <result column="request_method" property="requestMethod" />
-        <result column="request_headers" property="requestHeaders" />
-        <result column="request_cookies" property="requestCookies" />
-        <result column="request_body" property="requestBody" />
-        <result column="response_status" property="responseStatus" />
-        <result column="response_headers" property="responseHeaders" />
-        <result column="response_body" property="responseBody" />
-        <result column="ts" property="ts" />
-        <result column="status" property="status" />
-        <result column="message" property="message" />
-        <result column="client_id" property="clientId" />
-        <result column="create_time" property="createTime" />
-        <result column="update_time" property="updateTime" />
+        <id column="id" property="id"/>
+        <result column="task_log_id" property="taskLogId"/>
+        <result column="task_id" property="taskId"/>
+        <result column="task_step_id" property="taskStepId"/>
+        <result column="start_time" property="startTime"/>
+        <result column="end_time" property="endTime"/>
+        <result column="request_url" property="requestUrl"/>
+        <result column="request_method" property="requestMethod"/>
+        <result column="request_headers" property="requestHeaders"/>
+        <result column="request_cookies" property="requestCookies"/>
+        <result column="request_body" property="requestBody"/>
+        <result column="response_status" property="responseStatus"/>
+        <result column="response_headers" property="responseHeaders"/>
+        <result column="response_body" property="responseBody"/>
+        <result column="response_file" property="responseFile"/>
+        <result column="ts" property="ts"/>
+        <result column="status" property="status"/>
+        <result column="message" property="message"/>
+        <result column="client_id" property="clientId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, task_log_id, task_id, task_step_id, start_time, end_time, request_url, request_method, request_headers, request_cookies, request_body, response_status, response_headers, response_body, ts, status, message, client_id, create_time, update_time
+        id, task_log_id, task_id, task_step_id, start_time, end_time, request_url, request_method, request_headers, request_cookies,
+        request_body, response_status, response_headers, response_body,response_file, ts, status, message, client_id, create_time,
+        update_time
     </sql>
 
 </mapper>

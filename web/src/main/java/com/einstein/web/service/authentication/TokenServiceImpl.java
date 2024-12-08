@@ -4,11 +4,12 @@ import com.einstein.common.constant.BusinessEnum;
 import com.einstein.common.constant.Constant;
 import com.einstein.common.entity.TokenCache;
 import com.einstein.common.entity.annotation.DistributedLock;
+import com.einstein.common.entity.annotation.GetExecutionTime;
 import com.einstein.common.entity.exception.BusinessException;
 import com.einstein.common.entity.exception.authentication.AuthenticationException;
 import com.einstein.common.util.RandomUtils;
 import com.einstein.database.entity.po.User;
-import com.einstein.service.UserService;
+import com.einstein.service.user.UserService;
 import com.einstein.service.util.RedisUtils;
 import com.einstein.web.util.IpUtils;
 import com.einstein.web.util.UserUtils;
@@ -52,8 +53,9 @@ public class TokenServiceImpl implements TokenService {
         this.userService = userService;
     }
 
-    @DistributedLock(keyPrefix = "handleInitCacheToken:", keyValue = "#user.username")
     @Override
+    @GetExecutionTime
+    @DistributedLock(keyPrefix = "handleInitCacheToken:", keyValue = "#user.username")
     public String handleInitCacheToken(User user) {
         String token = RandomUtils.numRandom(20);
         LocalDateTime now = LocalDateTime.now();
@@ -64,13 +66,14 @@ public class TokenServiceImpl implements TokenService {
                 .setLoginIp(IpUtils.getRequestIp(request))
                 .setUserAgent(request.getHeader(HttpHeaders.USER_AGENT))
                 .setLoginTime(now.format(DATE_TIME_FORMATTER))
+                .setClientId(user.getClientId())
                 .setClientChildren(Collections.singletonList(user.getClientId()));
         RedisUtils.set(Constant.USER_TOKEN_CACHE + token, tokenCache, tokenDuration);
         return token;
     }
 
     @Override
-    @stop
+    @GetExecutionTime
     public TokenCache refreshCacheToken(String token) {
         TokenCache tokenCache = (TokenCache) RedisUtils.getValue(Constant.USER_TOKEN_CACHE + token);
         if (tokenCache == null) {

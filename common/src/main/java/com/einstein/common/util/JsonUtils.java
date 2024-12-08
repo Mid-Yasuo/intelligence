@@ -53,16 +53,11 @@ public class JsonUtils {
 
     public static <T> T toJavaBean(String json, Class<T> clazz) {
         try {
+            if (StringUtils.isBlank(json)) {
+                return null;
+            }
             return OBJECT_MAPPER.readValue(json, clazz);
-        } catch (JsonProcessingException exception) {
-            throw new JsonException(exception.getMessage());
-        }
-    }
-
-    public static <T> T toJavaBean(String json, TypeReference<T> typeReference) {
-        try {
-            return OBJECT_MAPPER.readValue(json, typeReference);
-        } catch (JsonProcessingException exception) {
+        } catch (Exception exception) {
             throw new JsonException(exception.getMessage());
         }
     }

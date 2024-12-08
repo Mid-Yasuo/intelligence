@@ -1,8 +1,11 @@
 package com.einstein.database.dao;
 
-import com.einstein.database.entity.po.TaskStep;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.einstein.database.entity.po.TaskStep;
 import org.apache.ibatis.annotations.Mapper;
+
+import java.util.List;
 
 /**
  * <p>
@@ -14,5 +17,27 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface TaskStepDao extends BaseMapper<TaskStep> {
+
+    /**
+     * 查询任务步骤列表
+     *
+     * @param taskId
+     * @return
+     */
+    default List<TaskStep> listByTaskId(Long taskId) {
+        return this.selectList(new LambdaQueryWrapper<TaskStep>().eq(TaskStep::getTaskId, taskId).orderByAsc(TaskStep::getTaskStepSort));
+    }
+
+    /**
+     * 根据步骤名称查询步骤
+     *
+     * @param taskId
+     * @param taskStepName
+     * @return
+     */
+    default TaskStep selectByStepName(Long taskId, String taskStepName) {
+        return this.selectOne(new LambdaQueryWrapper<TaskStep>().eq(TaskStep::getTaskId, taskId).eq(TaskStep::getTaskStepName,
+                taskStepName).last(" LIMIT 1"));
+    }
 
 }

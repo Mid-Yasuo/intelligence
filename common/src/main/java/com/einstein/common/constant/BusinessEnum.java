@@ -14,8 +14,13 @@ public enum BusinessEnum {
      * 101xxx 用户
      * 102xxx 角色
      * 103xxx 权限
+     * <p>
+     * 201xxx 任务
+     * 202xxx 任务步骤
+     * 203xxx 任务脚本
+     * 204xxx 任务日志
      */
-    USER_NOT_FOUND(101104, "用户不存在", "User not found"),
+    USER_NOT_FOUND(101104, "用户不存在", "User not exist"),
     USER_NOT_LOGIN(101105, "用户未登录", "User not login"),
     USER_PASSWORD_ERROR(101106, "账户或密码错误", "Username or password error"),
     USER_TOKEN_EXPIRE(101107, "用户令牌失效", "User token expired"),
@@ -27,6 +32,11 @@ public enum BusinessEnum {
     USER_FORBIDDEN_ERROR(101203, "账户已被禁用", "The User has been disabled"),
     USER_CANCEL_ACCOUNT_ERROR(101204, "账户已注销", "The user has been canceled"),
 
+    TASK_NOT_EXIST(201404, "任务不存在", "Task not exist"),
+    TASK_IN_PROCESS(201600, "任务正在执行中", "Task is in process"),
+    TASK_NAME_DUPLICATE(201601, "任务名称重复", "Duplicate task name"),
+    TASK_STEP_NOT_EXIST(202404, "任务步骤不存在", "Task step not exist"),
+    TASK_STEP_NAME_DUPLICATE(202601, "任务步骤名称重复", "Duplicate task step name"),
     ;
 
     private final int code;

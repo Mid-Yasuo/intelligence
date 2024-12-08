@@ -1,14 +1,12 @@
 package com.einstein.database.entity.po;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.util.Date;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -45,10 +43,10 @@ public class TaskScript implements Serializable {
     private Long taskStepId;
 
     /**
-     * 执行时机： before-请求前 after-请求后
+     * 执行时机： Before-请求前 After-请求后
      */
-    @TableField("script_condition")
-    private String scriptCondition;
+    @TableField("script_position")
+    private String scriptPosition;
 
     /**
      * 操作： get-获取参数 set-设置参数 download-下载 unzip-解压 zip-压缩文件
@@ -63,45 +61,50 @@ public class TaskScript implements Serializable {
     private Integer scope;
 
     /**
-     * 源 Key
+     * 目标类型：json | html | file
      */
-    @TableField("source_key")
-    private String sourceKey;
+    @TableField("target_type")
+    private String targetType;
 
     /**
      * 目标 Key
      */
     @TableField("target_key")
     private String targetKey;
+    /**
+     * 目标 Key
+     */
+    @TableField("target_value")
+    private String targetValue;
 
     /**
      * 客户 ID
      */
-    @TableField("client_id")
+    @TableField(value = "client_id", fill = FieldFill.INSERT)
     private String clientId;
 
     /**
      * 创建时间
      */
-    @TableField("create_time")
+    @TableField(value = "create_time", fill = FieldFill.INSERT)
     private Date createTime;
 
     /**
      * 创建用户
      */
-    @TableField("create_by")
+    @TableField(value = "create_by", fill = FieldFill.INSERT)
     private Long createBy;
 
     /**
      * 修改时间
      */
-    @TableField("update_time")
+    @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
 
     /**
      * 修改用户
      */
-    @TableField("update_by")
+    @TableField(value = "update_by", fill = FieldFill.INSERT_UPDATE)
     private Long updateBy;
 
 

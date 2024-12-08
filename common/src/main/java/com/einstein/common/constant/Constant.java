@@ -20,6 +20,9 @@ public class Constant {
 
     public static final String CLIENT_ID = "client_id";
 
+    public static final long TEXT_MAX_LENGTH = 65535L;
+    public static final String FILE_SEPARATOR = "/";
+
     public static final class ContentType {
         public static final String JSON = "application/json";
     }
