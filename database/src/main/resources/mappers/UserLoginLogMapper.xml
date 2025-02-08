@@ -9,13 +9,14 @@
         <result column="login_ip" property="loginIp" />
         <result column="login_datetime" property="loginDatetime" />
         <result column="login_status" property="loginStatus" />
+        <result column="login_error_message" property="loginErrorMessage" />
         <result column="create_time" property="createTime" />
         <result column="update_time" property="updateTime" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, username, login_ip, login_datetime, login_status, create_time, update_time
+        id, username, login_ip, login_datetime, login_status, login_error_message, create_time, update_time
     </sql>
 
 </mapper>

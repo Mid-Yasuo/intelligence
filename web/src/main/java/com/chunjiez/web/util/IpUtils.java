@@ -1,6 +1,10 @@
 package com.chunjiez.web.util;
 
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
 import javax.servlet.http.HttpServletRequest;
+import java.util.Objects;
 
 /**
  * @author 张春杰
@@ -12,6 +16,14 @@ public class IpUtils {
     public static final String UNKNOWN = "unknown";
     public static final String IPV4_LOCAL = "127.0.0.1";
     public static final String IPV6_LOCAL = "0:0:0:0:0:0:0:1";
+
+    public static String getIp() {
+        ServletRequestAttributes attrs = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        if (Objects.nonNull(attrs)) {
+            return getRequestIp(attrs.getRequest());
+        }
+        return UNKNOWN;
+    }
 
     public static String getRequestIp(HttpServletRequest request) {
         String ip = request.getHeader("X-Forwarded-For");

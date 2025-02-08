@@ -10,7 +10,6 @@
         <module>common</module>
         <module>database</module>
         <module>business</module>
-        <module>task</module>
         <module>web</module>
     </modules>
     <name>intelligence</name>

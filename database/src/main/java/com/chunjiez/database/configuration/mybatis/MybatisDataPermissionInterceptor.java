@@ -53,8 +53,6 @@ public class MybatisDataPermissionInterceptor extends JsqlParserSupport implemen
             List<SelectBody> selectBodyList = setOperationList.getSelects();
             selectBodyList.forEach(s -> this.setWhere((PlainSelect) s, (String) obj));
         }
-        String selectSql = select.toString();
-        System.out.println("selectSql = " + selectSql);
     }
 
     /**
@@ -67,7 +65,7 @@ public class MybatisDataPermissionInterceptor extends JsqlParserSupport implemen
         Table table = (Table) plainSelect.getFromItem();
         String tableName = table.getName();
         if (ignoreTables().contains(tableName)) {
-            log.info("表：{} 跳过数据权限", tableName);
+            log.info("Table [{}] skip validate data permission", tableName);
             return;
         }
         Alias alias = table.getAlias();

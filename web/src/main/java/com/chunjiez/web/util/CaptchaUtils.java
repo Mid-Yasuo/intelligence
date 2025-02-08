@@ -4,7 +4,7 @@
 
 package com.chunjiez.web.util;
 
-import com.chunjiez.service.util.RedisUtils;
+import com.chunjiez.business.util.RedisUtils;
 import com.wf.captcha.SpecCaptcha;
 import com.wf.captcha.base.Captcha;
 import lombok.extern.slf4j.Slf4j;

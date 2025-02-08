@@ -26,10 +26,4 @@ public class Constant {
     public static final class ContentType {
         public static final String JSON = "application/json";
     }
-
-    public static class Status {
-        public static final int N = 0;
-
-        public static final int Y = 1;
-    }
 }

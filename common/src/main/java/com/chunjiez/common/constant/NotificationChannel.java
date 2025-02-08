@@ -14,9 +14,13 @@ public enum NotificationChannel {
      * 通知渠道
      */
     System("System"),
+
     Email("Email"),
+
     SMS("SMS"),
+
     DingTalk("DingTalk"),
+
     Phone("Phone"),
     ;
     private final String channel;
