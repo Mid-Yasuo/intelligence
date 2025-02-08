@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>intelligence</artifactId>
-        <groupId>com.einstein</groupId>
+        <groupId>com.chunjiez</groupId>
         <version>0.0.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -18,8 +18,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.einstein</groupId>
-            <artifactId>service</artifactId>
+            <groupId>com.chunjiez</groupId>
+            <artifactId>business</artifactId>
             <version>0.0.1</version>
         </dependency>
         <dependency>
@@ -64,7 +64,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
                 <configuration>
-                    <mainClass>com.einstein.web.IntelligenceWebApp</mainClass>
+                    <mainClass>com.chunjiez.web.WebApp</mainClass>
                 </configuration>
                 <executions>
                     <execution>

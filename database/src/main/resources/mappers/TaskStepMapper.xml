@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.einstein.database.dao.TaskStepDao">
+<mapper namespace="com.chunjiez.database.dao.TaskStepDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.einstein.database.entity.po.TaskStep">
+    <resultMap id="BaseResultMap" type="com.chunjiez.database.entity.po.TaskStep">
         <id column="id" property="id"/>
         <result column="task_step_name" property="taskStepName"/>
         <result column="request_url" property="requestUrl"/>
