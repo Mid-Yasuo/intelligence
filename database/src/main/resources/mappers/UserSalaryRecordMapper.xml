@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chunjiez.database.dao.UserSalaryRecordDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.chunjiez.database.entity.po.UserSalaryRecord">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="username" property="username" />
+        <result column="salary_month" property="salaryMonth" />
+        <result column="base_salary" property="baseSalary" />
+        <result column="performance_salary" property="performanceSalary" />
+        <result column="traffic_salary" property="trafficSalary" />
+        <result column="bonus" property="bonus" />
+        <result column="pension_salary" property="pensionSalary" />
+        <result column="medical_salary" property="medicalSalary" />
+        <result column="accumulation_fund_salary" property="accumulationFundSalary" />
+        <result column="accumulation_fund_bonus" property="accumulationFundBonus" />
+        <result column="fine_salary" property="fineSalary" />
+        <result column="fine_remark" property="fineRemark" />
+        <result column="total_salary" property="totalSalary" />
+        <result column="create_time" property="createTime" />
+        <result column="create_by" property="createBy" />
+        <result column="update_time" property="updateTime" />
+        <result column="update_by" property="updateBy" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_id, username, salary_month, base_salary, performance_salary, traffic_salary, bonus, pension_salary, medical_salary, accumulation_fund_salary, accumulation_fund_bonus, fine_salary, fine_remark, total_salary, create_time, create_by, update_time, update_by
+    </sql>
+
+</mapper>

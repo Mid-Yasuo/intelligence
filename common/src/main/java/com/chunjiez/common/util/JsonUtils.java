@@ -51,10 +51,14 @@ public class JsonUtils {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public static <T> T toJavaBean(String json, Class<T> clazz) {
         try {
             if (StringUtils.isBlank(json)) {
                 return null;
+            }
+            if (clazz.equals(String.class)){
+                return (T) json;
             }
             return OBJECT_MAPPER.readValue(json, clazz);
         } catch (Exception exception) {

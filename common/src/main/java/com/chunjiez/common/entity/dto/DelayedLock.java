@@ -1,6 +1,7 @@
 package com.chunjiez.common.entity.dto;
 
 import lombok.Getter;
+import org.springframework.lang.NonNull;
 
 import java.util.concurrent.Delayed;
 import java.util.concurrent.TimeUnit;
@@ -28,7 +29,7 @@ public class DelayedLock implements Delayed {
     }
 
     @Override
-    public int compareTo(Delayed delayed) {
+    public int compareTo(@NonNull Delayed delayed) {
         DelayedLock delayedLock = (DelayedLock) delayed;
         return lock.compareTo(delayedLock.getLock());
     }

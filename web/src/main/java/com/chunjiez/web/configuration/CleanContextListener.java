@@ -18,7 +18,8 @@ public class CleanContextListener extends RequestContextListener {
 
     @Override
     public void requestDestroyed(ServletRequestEvent requestEvent) {
-        log.debug("==========================>clean thread local<==========================");
+        String remoteHost = requestEvent.getServletRequest().getRemoteHost();
+        log.debug("==========================>[{}] clean thread local<==========================", remoteHost);
         AuthContentHolder.cleanUserTokenCache();
     }
 }
